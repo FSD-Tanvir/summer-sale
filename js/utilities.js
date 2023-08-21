@@ -16,17 +16,35 @@ function applyCoupon(totalPrice) {
   }
 }
 
-function setTotalPrice(elementId, totalPrice){
-    const totalPriceElement = document.getElementById(elementId)
-    totalPriceElement.innerText = totalPrice
+function makePurchase(totalPrice) {
+  const purchaseButton = document.getElementById("btn-purchase");
+  if (totalPrice > 0) {
+    purchaseButton.removeAttribute("disabled");
+  } else {
+    purchaseButton.setAttribute("disabled", true);
+  }
+}
+
+function setTotalPrice(elementId, totalPrice) {
+  const totalPriceElement = document.getElementById(elementId);
+  totalPriceElement.innerText = totalPrice;
 }
 
 function getTotalPrice(prodPriceId, previousTotalId) {
   const price = getValue(prodPriceId);
   const previousTotalPrice = getValue(previousTotalId);
   const totalPrice = previousTotalPrice + price;
-  setTotalPrice(previousTotalId, totalPrice)
+  makePurchase(totalPrice);
+  applyCoupon(totalPrice);
+  setTotalPrice(previousTotalId, totalPrice);
+  setTotalPrice("total", totalPrice);
   return totalPrice;
 }
 
-
+function addToProductList(cardTitle) {
+  const productListElement = document.getElementById("product-list");
+  const count = productListElement.childElementCount;
+  const p = document.createElement("p");
+  p.innerHTML = `${count + 1}. ${cardTitle}`;
+  productListElement.appendChild(p);
+}
