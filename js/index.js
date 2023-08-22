@@ -14,7 +14,7 @@ document.getElementById("card-2").addEventListener("click", function () {
 });
 // card-3
 document.getElementById("card-3").addEventListener("click", function () {
-  getTotalPrice("price-3", "total-price")
+  getTotalPrice("price-3", "total-price");
   const cardTitleElement = document.getElementById("card-heading-3");
   const cardTitle = cardTitleElement.innerText;
   addToProductList(cardTitle);
