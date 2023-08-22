@@ -15,7 +15,7 @@
     <header>
       <div class="hero min-h-screen bg-[#F9F6E2]">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src="./images/Summer 1.png" class="max-w-xl rounded-lg" />
+          <img src="./images/Summer 1.png" class="md:max-w-xl rounded-lg" />
           <div>
             <p class="py-6 font-medium text-3xl text-center text-[#111]">
               ---SALE FEVER---
@@ -36,7 +36,7 @@
         </div>
       </div>
     </header>
-    <main class="flex w-4/5 mx-auto gap-2 px-2">
+    <main class="flex flex-col lg:w-11/12 mx-auto gap-2 px-2 lg:flex-row xl:w-4/5">
       <section class="my-24 flex-grow">
         <!-- Kitchenware section -->
         <div>
@@ -327,16 +327,16 @@
           </div>
         </div>
       </section>
-      <aside class="w-1/4 flex-grow my-48">
+      <aside class="sm:w-3/4 mx-auto lg:w-1/4 flex-grow my-14 lg:my-48">
         <!-- coupon section -->
-        <div class="my-12 bg-white px-1 py-3 rounded-lg">
+        <div class="lg:my-12 bg-white px-1 py-3 rounded-lg">
           <h2 class="font-medium text-2xl text-[#111] mb-3">Have coupon?</h2>
-          <div class="flex w">
+          <div class="flex flex-col gap-2 lg:flex-row lg:gap-0">
             <input
               id="coupon"
               type="text"
               placeholder="Coupon code"
-              class="border-solid border rounded-lg border-[#11111180] px-3 py-1"
+              class="border-solid border rounded-lg border-[#11111180] px-3 py-1 lg:w-32 xl:w-full"
             />
             <button
               id="btn-apply"
@@ -373,13 +373,26 @@
               >
             </p>
           </div>
-          <button
-            id="btn-purchase"
-            class="bg-[#E527B2] py-1 text-white rounded-lg w-full"
-            disabled
-          >
-            Make Purchase
-          </button>
+          <div class="card-actions">
+            <button id="btn-purchase" class="py-1 bg-[#e527b2] text-white w-full rounded-lg" disabled
+              onclick="my_modal_1.showModal()">Make Purchase</button>
+            <dialog id="my_modal_1" class="modal">
+              <form method="dialog" class="">
+                <div class="modal-action">
+                  <div class="card card-compact sm:w-96 bg-base-100 shadow-xl">
+                    <figure><img src="./images/congo.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center text-center">
+                      <p class="font-5xl font-bold text-[#111]">Congratulations</p>
+                      <p class="text-[#11111180] text-lg font-normal">Your Purchase the product</p>
+                      <div class="card-actions">
+                        <button id="btn-go-home" class="btn btn-secondary" onclick="window.location.reload()">GO Home</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </dialog>
+          </div>
         </div>
       </aside>
     </main>
